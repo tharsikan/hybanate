@@ -1,0 +1,43 @@
+package com.sgic.project.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="project")
+public class Project {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private int projectId;
+	
+	@Column(name="project_name")
+	private String projectName;
+	
+	@Column(name="project_description")
+	private String projectDescription;
+	
+	public Project(int projectId, String projectName, String projectDescription) {
+		super();
+		this.projectId = projectId;
+		this.projectName = projectName;
+	}
+	
+	public Project(int projectId, String projectName) {
+		super();
+		this.projectId = projectId;
+		this.projectName = projectName;
+	}
+	
+	public Project() {
+		
+	}
+
+
+	
+
+	
+}

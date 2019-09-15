@@ -1,0 +1,44 @@
+package com.sgic.project.dao;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+
+import com.sgic.project.model.Project;
+
+
+public class ProjectDaoImpl {
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+	
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+	
+	public Project createClassification(Project classification) {
+		hibernateTemplate.save(classification);
+		return null;
+	}
+
+	public List<Project> getAllClassification() {
+		String query="from Project";
+		List<Project> projects = (List<Project>) hibernateTemplate.find(query);
+		return projects;
+	}
+	
+}
+
+
+
+
+
+

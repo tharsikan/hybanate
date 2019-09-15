@@ -1,0 +1,5 @@
+package com.sgic.project.model;
+
+public class Project {
+
+}
